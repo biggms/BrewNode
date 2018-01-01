@@ -1,0 +1,6 @@
+[submodule "dto"]
+	path = dto
+	url = git@github.com:biggms/dto.git
+[submodule "sequelize-paper-trail"]
+	path = sequelize-paper-trail
+	url = git@github.com:biggms/sequelize-paper-trail
