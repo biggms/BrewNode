@@ -38,7 +38,7 @@ function handleNewLog(msg) {
 
 function startMQ() {
     return new Promise(function (resolve, reject) {
-        let mq = require('common').mq;
+        let mq = require('brewnodecommon').mq;
         console.log("Connecting to MQ");
         mq.connect('amqp://localhost', 'amq.topic')
             .then(connect => {
