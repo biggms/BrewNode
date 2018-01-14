@@ -6,7 +6,7 @@
 	url = git@github.com:biggms/sequelize-paper-trail
 [submodule "temperatureserver"]
 	path = temperatureserver
-	url = git@github-as-biggms:biggms/temperatureserver.git
+	url = git@github.com:biggms/temperatureserver.git
 [submodule "logserver"]
 	path = logserver
-	url = git@github-as-biggms:biggms/logserver.git
+	url = git@github.com:biggms/logserver.git
