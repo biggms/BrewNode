@@ -10,3 +10,6 @@
 [submodule "logserver"]
 	path = logserver
 	url = git@github.com:biggms/logserver.git
+[submodule "bubblerserver"]
+	path = bubblerserver
+	url = git@github.com:biggms/bubblerserver.git
