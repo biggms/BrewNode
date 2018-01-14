@@ -11,7 +11,7 @@ module.exports = {
       },
       level: {
         type: Sequelize.ENUM,
-        values: ['INFO', 'DEBUG', 'WARN', 'ERROR', 'TRACE']
+        values: ['error', 'warn', 'info', 'verbose', 'debug', 'silly']
       },
       createdAt: {
         allowNull: false,

@@ -4,25 +4,29 @@ exports.log = function (level, message) {
     let lLog = {};
     lLog.level = level;
     lLog.message = message;
-    mq.send('logging.v1', JSON.stringify(lLog));
+    return mq.send('logging.v1.'+level, JSON.stringify(lLog));
 };
 
-exports.info = function (message) {
-    exports.log("INFO", message);
-};
-
-exports.debug = function (message) {
-    exports.log("DEBUG", message);
-};
-
-exports.trace = function (message) {
-    exports.log("TRACE", message);
+exports.error = function (message) {
+    return exports.log("error", message);
 };
 
 exports.warn = function (message) {
-    exports.log("WARN", message);
+    return exports.log("warn", message);
 };
 
-exports.errro = function (message) {
-    exports.log("ERROR", message);
+exports.info = function (message) {
+    return exports.log("info", message);
+};
+
+exports.verbose = function (message) {
+    return exports.log("verbose", message);
+};
+
+exports.debug = function (message) {
+    return exports.log("debug", message);
+};
+
+exports.silly = function (message) {
+    return exports.log("silly", message);
 };

@@ -13,7 +13,8 @@
     },
     "define": {
       "updatedAt": false
-    }
+    },
+    "logging" : false
   },
   "test": {
     "username": "root",

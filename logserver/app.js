@@ -1,4 +1,7 @@
+var Promise = require('bluebird');
 var models;
+var logutil = require('brewnodecommon').logutil;
+var winston = require('winston');
 
 function startDB() {
     return new Promise(function (resolve, reject) {
@@ -27,10 +30,11 @@ function handleNewLog(msg) {
         }
         models.Log.create(lLog)
             .then(() => {
+                winston.log( lLog.level, lLog.message );
                 resolve();
             })
             .catch(err => {
-                console.error( "Error saving log:\n" + err );
+                console.error("Error saving log:\n" + err);
                 resolve();
             })
     });
@@ -43,7 +47,9 @@ function startMQ() {
         mq.connect('amqp://localhost', 'amq.topic')
             .then(connect => {
                 console.log("MQ Connected");
-                return mq.recv('logging.v1', handleNewLog);
+                return Promise.all([
+                    mq.recv('logserver', 'logging.v1.#', handleNewLog)
+                ]);
             })
             .then(() => {
                 console.log("MQ Listening");
@@ -59,8 +65,8 @@ function startMQ() {
 async function main() {
     console.log("Starting");
     await Promise.all([startDB(), startMQ()]);
-    console.log("Started");
-}
+    logutil.info("Log server started");
+};
 
 main();
 

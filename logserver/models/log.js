@@ -1,11 +1,11 @@
+'use strict';
 var dto = require('dto');
 
-'use strict';
 module.exports = (sequelize, DataTypes) => {
     var Log = sequelize.define('Log', {
             id: {type: DataTypes.UUID, primaryKey: true, defaultValue: DataTypes.UUIDV4},
             message: {type: DataTypes.STRING},
-            level: {type: DataTypes.ENUM, values: ['INFO', 'DEBUG', 'WARN', 'ERROR', 'TRACE']},
+            level: {type: DataTypes.ENUM, values: ['error', 'warn', 'info', 'verbose', 'debug', 'silly']},
         }
     );
 

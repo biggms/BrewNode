@@ -6,14 +6,16 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "dto": "~0.0.1-biggms",
+    "amqplib": "~0.5.2",
+    "bluebird": "~3.5.1",
     "brewnodecommon": "1.0.0",
+    "dto": "0.0.1-biggms",
     "extend": "~3.0.1",
     "mysql2": "~1.5.1",
     "sequelize": "~4.28.6",
     "sequelize-cli": "^3.2.0",
-    "sequelize-paper-trail": "~2.0.0-biggms",
+    "sequelize-paper-trail": "2.0.0-biggms",
     "uuid": "~3.1.0",
-    "amqplib": "~0.5.2"
+    "winston": "^2.4.0"
   }
 }

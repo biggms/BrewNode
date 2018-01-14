@@ -1,3 +1,5 @@
+var Promise = require('bluebird');
+
 exports.connect = function (host, exchange) {
     exports.exchange = exchange;
     return new Promise(function (resolve, reject) {
@@ -15,12 +17,15 @@ exports.connect = function (host, exchange) {
             .catch(err => {
                 reject(err);
             })
-    })
+    });
 };
 
-exports.recv = function (topic, callback) {
+exports.recv = function (queuename, topic, callback) {
     return new Promise(function (resolve, reject) {
-        exports.channel.assertQueue('', {exclusive: true})
+        exports.channel.assertQueue(queuename)
+            .then(q => {
+                return exports.channel.unbindQueue(q.queue, exports.exchange);
+            })
             .then(q => {
                 return exports.channel.bindQueue(q.queue, exports.exchange, topic);
             })
@@ -37,5 +42,12 @@ exports.recv = function (topic, callback) {
 };
 
 exports.send = function (topic, message) {
-    exports.channel.publish(exports.exchange, topic, new Buffer(message));
+    return new Promise( function (resolve, reject) {
+        if( exports.channel.publish(exports.exchange, topic, new Buffer(message)) ) {
+            resolve();
+        }
+        else {
+            reject();
+        }
+    });
 };
