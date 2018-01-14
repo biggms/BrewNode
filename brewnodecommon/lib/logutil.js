@@ -1,4 +1,4 @@
-mq = require("./mq");
+const mq = require("./mq");
 
 exports.log = function (level, message) {
     let lLog = {};

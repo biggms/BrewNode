@@ -4,3 +4,6 @@
 [submodule "sequelize-paper-trail"]
 	path = sequelize-paper-trail
 	url = git@github.com:biggms/sequelize-paper-trail
+[submodule "temperatureserver"]
+	path = temperatureserver
+	url = git@github-as-biggms:biggms/temperatureserver.git

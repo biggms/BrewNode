@@ -9,8 +9,6 @@ module.exports = (sequelize, DataTypes) => {
         }
     );
 
-//  Log.Revisions = Log.hasPaperTrail();
-
     Log.prototype.toDTO = function () {
         return JSON.stringify(dto.take.only(this.dataValues, ['message', 'level']));
     };

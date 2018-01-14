@@ -25,17 +25,17 @@ function handleNewLog(msg) {
         let lLog = JSON.parse(msg.content.toString());
         if (!lLog.hasOwnProperty("message") || !lLog.hasOwnProperty("level")) {
             console.warn("Bad DTO: " + JSON.stringify(lLog));
-            resolve();
+            reject();
             return;
         }
         models.Log.create(lLog)
             .then(() => {
-                winston.log( lLog.level, lLog.message );
+                winston.log(lLog.level, lLog.message);
                 resolve();
             })
             .catch(err => {
                 console.error("Error saving log:\n" + err);
-                resolve();
+                reject();
             })
     });
 }
