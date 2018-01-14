@@ -7,3 +7,6 @@
 [submodule "temperatureserver"]
 	path = temperatureserver
 	url = git@github-as-biggms:biggms/temperatureserver.git
+[submodule "logserver"]
+	path = logserver
+	url = git@github-as-biggms:biggms/logserver.git
