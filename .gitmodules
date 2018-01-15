@@ -13,3 +13,9 @@
 [submodule "bubblerserver"]
 	path = bubblerserver
 	url = git@github.com:biggms/bubblerserver.git
+[submodule "volumeserver"]
+	path = volumeserver
+	url = git@github.com:biggms/volumeserver.git
+[submodule "flowserver"]
+	path = flowserver
+	url = git@github.com:biggms/flowserver.git
